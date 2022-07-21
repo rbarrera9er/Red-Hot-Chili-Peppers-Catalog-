@@ -5,8 +5,8 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 function retrieveAlbums(){
-    const ul = document.getElementById('Album-List')
-    const band = document.getElementById('band')
+    let ul = document.getElementById('Album-List')
+    let band = document.getElementById('band')
     band.innerHTML = ""
     ul.innerHTML = ""
     fetch('http://localhost:3000/Albums')
@@ -34,8 +34,8 @@ function makeLinksLive(){
 const showAlbum = (event) => {
     // no default action on a click
     console.log(event.target.dataset.id)  //click event
-    const band = document.getElementById('band')
-    const ul = document.getElementById('Album-List')
+    let band = document.getElementById('band')
+    let ul = document.getElementById('Album-List')
     ul.innerHTML = ''
     fetch('http://localhost:3000' + `/Albums/${event.target.dataset.id}`) //this was a pain in the ass... returns promised obj
     .then(res => res.json())
