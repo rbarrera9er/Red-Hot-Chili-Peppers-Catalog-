@@ -2,28 +2,23 @@
 window.addEventListener('DOMContentLoaded', () => {
     retrieveAlbums()
     document.getElementById('albums').addEventListener('click', retrieveAlbums)
-    
 })    
 
 function retrieveAlbums(){
     let ul = document.getElementById('Album-List')
     let band = document.getElementById('band')
-    
     band.innerHTML = ""
     ul.innerHTML = ""
-    .innerHTML= ""
+    
     fetch('http://localhost:3000/Albums')
-    .then(res => res.json())
+    .then(response => response.json())
     .then(data => {
         data.forEach(Albums => {
             ul.innerHTML +=
                 `<a href="#" data-id="${Albums.id}">${Albums.title} </a>`
-
-
         })
         makeLinksLive() // was orignally on line 19
-    })
-    
+    })    
 }
 
 function makeLinksLive(){
@@ -32,7 +27,6 @@ function makeLinksLive(){
     Albums.forEach((Albums) => {
         Albums.addEventListener('click', showAlbum)
     })
-
 }
 
 const showAlbum = (event) => {
@@ -42,10 +36,11 @@ const showAlbum = (event) => {
     let ul = document.getElementById('Album-List')
     ul.innerHTML = ''
     fetch('http://localhost:3000' + `/Albums/${event.target.dataset.id}`) //this was a pain in the ass... returns promised obj
-    .then(res => res.json())
+    .then(response => response.json())
     .then(Albums => {
         console.log(Albums)
-        band.innerHTML = `<h1>${Albums.title}</h1><br/>
+        band.innerHTML = 
+        `<h1>${Albums.title}</h1><br/>
         <h2>Album-Cover</h2>
         <img src="${Albums.url}"/>
         <h2>Year-Album-Release</h2>
