@@ -15,13 +15,13 @@ function retrieveAlbums(){
     .then(data => {
         data.forEach(Albums => {
             ul.innerHTML +=
-                `<a href="#" data-id="${Albums.id}">${Albums.title} </a>`
+               `<div class="item1"><a href="#" data-id="${Albums.id}">${Albums.title} </a></div>`
         })
-        makeLinksLive() // was orignally on line 19
+        activateLinks() // was orignally on line 19
     })    
 }
 
-function makeLinksLive(){
+function activateLinks(){
     const Albums = document.querySelectorAll('a')
 
     Albums.forEach((Albums) => {
@@ -52,7 +52,7 @@ const showAlbum = (event) => {
         <h2>Songs</h2>
         <p>${Albums.songs.join(", ")}</p>`
     })
-}
+    }
 
 let i = 0;
 let images = [];
