@@ -2,14 +2,14 @@
 window.addEventListener('DOMContentLoaded', () => {
     retrieveAlbums()
     document.getElementById('albums').addEventListener('click', retrieveAlbums)
+    
 })    
 
 function retrieveAlbums(){
     let ul = document.getElementById('Album-List')
-    let band = document.getElementById('band')
+    let band = document.getElementById('band')   
     band.innerHTML = ""
-    ul.innerHTML = ""
-    
+    ul.innerHTML = ""  
     fetch('http://localhost:3000/Albums')
     .then(response => response.json())
     .then(data => {
@@ -23,10 +23,13 @@ function retrieveAlbums(){
 
 function activateLinks(){
     const Albums = document.querySelectorAll('a')
-
+   // const slideshow = document.getElementsByClassName("slideshow-container");
+    //slideshow[0].style.display = "none";
     Albums.forEach((Albums) => {
         Albums.addEventListener('click', showAlbum)
+        
     })
+    
 }
 
 const showAlbum = (event) => {
@@ -34,7 +37,9 @@ const showAlbum = (event) => {
     console.log(event.target.dataset.id)  //click event
     let band = document.getElementById('band')
     let ul = document.getElementById('Album-List')
+    
     ul.innerHTML = ''
+    
     fetch('http://localhost:3000' + `/Albums/${event.target.dataset.id}`) //this was a pain in the ass... returns promised obj
     .then(response => response.json())
     .then(Albums => {
@@ -54,9 +59,12 @@ const showAlbum = (event) => {
     })
     }
 
+ 
+
 let i = 0;
 let images = [];
 let time = 4000;
+
 
     images[0] = 'https://upload.wikimedia.org/wikipedia/en/5/5e/Rhcp1.jpg';
     images[1] = 'https://upload.wikimedia.org/wikipedia/en/5/5b/Freakystyleyalbumcover.jpg';
@@ -82,4 +90,6 @@ function changeImg(){
 }
 
 window.onload = changeImg;
+
+
 
