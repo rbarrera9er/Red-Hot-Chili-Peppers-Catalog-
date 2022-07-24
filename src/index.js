@@ -76,7 +76,7 @@ let time = 4000;
     images[7] = 'https://upload.wikimedia.org/wikipedia/en/2/23/Rhcp9.jpg';
     images[8] = 'https://upload.wikimedia.org/wikipedia/en/e/e6/Stadiumarcadium.jpg';
 
-function changeImg(){
+function slideShow(){
     document.slide.src = images[i];
 
         if(i < images.length - 1){
@@ -85,11 +85,11 @@ function changeImg(){
         i = 0
         }
 
- setTimeout("changeImg()", time);
+ setTimeout("slideShow()", time);
 
 }
 
-window.onload = changeImg;
+window.onload = slideShow;
 
 
 
