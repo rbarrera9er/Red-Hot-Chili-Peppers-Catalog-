@@ -69,6 +69,14 @@ Understanding the http://127.0.0.1:5501/src/ is rather simple when it is broken 
 
    ## ENJOY!
 
+   ## Sources
+
+   - https://www.w3schools.com/html/default.asp  HTML set-up
+   - https://www.w3schools.com/css/default.asp   CSS set-up
+   - https://www.youtube.com/watch?v=SJ2oWKEmCoE JS string Interpolation
+   - https://www.youtube.com/watch?v=oUpEKosnC8E  Get elements by tag
+   - https://www.youtube.com/watch?v=RVA4HoEE_q8  For window.onload
+
 
 
  
